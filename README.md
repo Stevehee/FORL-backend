@@ -25,3 +25,21 @@ For example:
 
 javac \*.java  
 java Main adult.data isGreater 1
+
+
+Result for example run :
+
+Head: isGreater 1 ()
+Body: Marital Status 2 (Married-civ-spouse), Education 2 (Bachelors), Occupation 2 (Exec-managerial), Workclass 2 (Private)
+
+Head: isGreater 1 ()
+Body: Relationship 2 (Husband), Occupation 2 (Prof-specialty), Education 2 (Prof-school), Workclass 2 (Self-emp-inc)
+
+Head: isGreater 1 ()
+Body: Sex 2 (Male), Education 2 (Masters), Native Country 2 (United-States), Workclass 2 (Federal-gov)
+
+Head: isGreater 1 ()
+Body: Relationship 2 (Wife), Workclass 2 (Local-gov), Education 2 (Doctorate)
+
+Head: isGreater 1 ()
+Body: Race 2 (White), Occupation 2 (Sales), Workclass 2 (Self-emp-not-inc), Native Country 2 (Canada)
