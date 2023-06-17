@@ -92,23 +92,45 @@ class Main {
     return rule;
   }
 
+  private static Double getProb(Rule rule, DataSet data, Literal target) {
+    Double count = 0.0;
+    Double posCount = 0.0;
+
+    for (Tuple tuple : data.getTuples()) {
+      if (rule.coversExample(tuple)) {
+        count++;
+        if (tuple.getLiterals().contains(target)) {
+          posCount++;
+        }
+      }
+    }
+
+    if (count == 0.0)
+      return 0.0;
+
+    // System.out.println(posCount);
+
+    return posCount / count;
+  }
+
   // Main method
   public static void main(String[] args) {
     DataSet data = new DataSet(args[0]);
 
-    Literal target = new Literal(args[1], Integer.parseInt(args[2]), 
-    Arrays.asList(Arrays.copyOfRange(args,3, args.length)));
+    Literal target = new Literal(args[1], Integer.parseInt(args[2]),
+        Arrays.asList(Arrays.copyOfRange(args, 3, args.length - 1)));
 
     List<Tuple> positiveData = data.loadPositiveData(target);
     List<Tuple> negativeData = data.loadNegativeData(target);
     Set<Literal> allPredicates = data.loadPredicates();
 
     allPredicates.remove(target);
+    int ruleLength = Integer.parseInt(args[args.length - 1]);
 
     int counter = 0;
     while (!positiveData.isEmpty()) {
-      Rule rule = foil(positiveData, negativeData, target, allPredicates, 4);
-      System.out.println(rule + "\n");
+      Rule rule = foil(positiveData, negativeData, target, allPredicates, ruleLength);
+      System.out.println(getProb(rule, data, target) + ": " + rule + "\n");
       counter++;
       if (counter == 5)
         break;

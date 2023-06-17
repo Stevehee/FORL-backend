@@ -4,6 +4,7 @@ import java.util.*;
 class Rule {
   List<Literal> body;
   Literal head;
+  Double prob; 
 
   public Rule() {
     body = new ArrayList<>();
@@ -20,6 +21,14 @@ class Rule {
 
   public List<Literal> getBody() {
     return this.body;
+  }
+
+  public void setProb(Double prob){
+    this.prob = prob ;
+  }
+
+  public Double getProb(){
+    return this.prob ;
   }
 
   public void addLiteralToBody(Literal bestLiteral) {

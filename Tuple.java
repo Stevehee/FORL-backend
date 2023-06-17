@@ -2,13 +2,13 @@ import java.util.*;
 
 public class Tuple {
 
-  List<Literal> literals;
+  Set<Literal> literals;
 
   Integer ID;
 
   public Tuple(Integer ID, String[] data) {
     this.ID = ID;
-    literals = new ArrayList<>();
+    literals = new HashSet<>();
 
     for (int i = 0; i < data.length; i++) {
       if (isNum(data[i]))
@@ -49,7 +49,7 @@ public class Tuple {
     return this.ID;
   }
 
-  public List<Literal> getLiterals() {
+  public Set<Literal> getLiterals() {
     return this.literals;
   }
 
