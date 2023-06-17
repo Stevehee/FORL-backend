@@ -19,13 +19,13 @@ To run the FOIL algorithm, compile and run the `Main.java` class with the requir
 - `args[0]` - The path to the data file.
 - `args[1]` - The name of the target predicate.
 - `args[2]` - The number of arguments of the target predicate.
-- `args[3-n]` - The arguments of the target predicate. (could leave as empty).
+- `args[3-]` - The arguments of the target predicate. (could leave as empty).
+- `args[args.length - 1]` - The number of arguments of the target predicate.
 
 For example:
 
 javac \*.java  
-java Main adult.data isGreater 1
-
+java Main adult.data isGreater 1 3
 
 Result for example run :
 
