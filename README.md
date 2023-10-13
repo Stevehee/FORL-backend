@@ -26,7 +26,7 @@ To run the FOIL algorithm, compile and run the `Main.java` class with the requir
 - `args[1]` - The name of the target predicate.
 - `args[2]` - The number of arguments of the target predicate.
 - `args[3-]` - The arguments of the target predicate. (could leave as empty).
-- `args[args.length - 1]` - The number of arguments of the target predicate.
+- `args[args.length - 1]` - The maximum number of literals wanted in the learned rules.
 
 For example:
 
