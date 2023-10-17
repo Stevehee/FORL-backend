@@ -1,4 +1,4 @@
-package com.steve.FOIL;
+package com.FOIL;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
