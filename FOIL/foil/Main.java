@@ -1,3 +1,4 @@
+package foil;
 import java.util.*;
 
 // Main class
@@ -122,17 +123,17 @@ class Main {
 
     List<Tuple> positiveData = data.loadPositiveData(target);
     List<Tuple> negativeData = data.loadNegativeData(target);
-    Set<Literal> allPredicates = data.loadPredicates();
 
-    allPredicates.remove(target);
     int ruleLength = Integer.parseInt(args[args.length - 1]);
 
     int counter = 0;
     while (!positiveData.isEmpty()) {
+      Set<Literal> allPredicates = data.loadPredicates();
+      allPredicates.remove(target);
       Rule rule = foil(positiveData, negativeData, target, allPredicates, ruleLength);
       System.out.println(getProb(rule, data, target) + ": " + rule + "\n");
       counter++;
-      if (counter == 5)
+      if (counter == 10)
         break;
     }
   }

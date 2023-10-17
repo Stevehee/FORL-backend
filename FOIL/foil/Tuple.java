@@ -1,3 +1,4 @@
+package foil;
 import java.util.*;
 
 public class Tuple {

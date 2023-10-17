@@ -1,3 +1,4 @@
+package foil;
 public class Predicate {
   String name;
   int numArgs;

@@ -1,3 +1,4 @@
+package foil;
 import java.util.*;
 
 public class Literal extends Predicate {
@@ -38,8 +39,7 @@ public class Literal extends Predicate {
     if (name != null ? !name.equals(literal.name) : literal.name != null)
       return false;
 
-    // If your arguments list should be considered equal regardless of order, use a
-    // Set for comparison
+
     Set<String> thisArgumentsSet = new HashSet<>(arguments);
     Set<String> literalArgumentsSet = new HashSet<>(literal.arguments);
     return thisArgumentsSet.equals(literalArgumentsSet);
