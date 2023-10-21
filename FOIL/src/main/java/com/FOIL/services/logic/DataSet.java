@@ -1,4 +1,8 @@
-package foil;
+package com.FOIL.services.logic;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.InputStreamReader;
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,23 +12,27 @@ public class DataSet {
 
   List<Tuple> tuples;
 
-  public DataSet(String fileName) {
 
+
+  public DataSet(MultipartFile file) {
     tuples = new ArrayList<>();
 
-    try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+    try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
       String line;
       int counter = 0;
+      line = br.readLine() ;
+      System.out.println(line);
+      String[] header = line.split(",");
       while ((line = br.readLine()) != null) {
         String[] parts = line.split(",");
-        Tuple tuple = new Tuple(counter++, parts);
+        Tuple tuple = new Tuple(counter++, parts, header);
         tuples.add(tuple);
       }
     } catch (IOException e) {
       e.printStackTrace();
     }
-
   }
+
 
   public List<Tuple> getTuples() {
     return this.tuples;

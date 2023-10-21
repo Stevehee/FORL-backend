@@ -1,8 +1,10 @@
-package foil;
+package com.FOIL.services.logic;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.*;
 
 // Main class
-class Main {
+public class FOIL {
   // Method to calculate FOIL gain
   static double foilGain(Rule rule, Literal predicate, List<Tuple> positiveData,
       List<Tuple> negativeData) {
@@ -59,7 +61,7 @@ class Main {
 
     while (true) {
       Literal bestLiteral = null;
-      double bestGain = -1;
+      double bestGain = 0;
 
       for (Literal literal : allPredicates) {
         double gain = foilGain(rule, literal, positiveData, negativeData);
@@ -93,7 +95,7 @@ class Main {
     return rule;
   }
 
-  private static Double getProb(Rule rule, DataSet data, Literal target) {
+  private static String getProb(Rule rule, DataSet data, Literal target) {
     Double count = 0.0;
     Double posCount = 0.0;
 
@@ -107,34 +109,44 @@ class Main {
     }
 
     if (count == 0.0)
-      return 0.0;
+      return "0.00";
 
     // System.out.println(posCount);
 
-    return posCount / count;
+    Double res = posCount / count;
+    return String.format("%.2f", res);
   }
 
   // Main method
-  public static void main(String[] args) {
-    DataSet data = new DataSet(args[0]);
+  public static String learn(MultipartFile file, String[] args) {
+    DataSet data = new DataSet(file);
 
-    Literal target = new Literal(args[1], Integer.parseInt(args[2]),
-        Arrays.asList(Arrays.copyOfRange(args, 3, args.length - 1)));
+    Literal target = new Literal(args[0], Integer.parseInt(args[1]),
+        Arrays.asList(Arrays.copyOfRange(args, 2, args.length - 2)));
 
     List<Tuple> positiveData = data.loadPositiveData(target);
     List<Tuple> negativeData = data.loadNegativeData(target);
 
-    int ruleLength = Integer.parseInt(args[args.length - 1]);
+    int ruleLength = Integer.parseInt(args[args.length - 2]);
 
+    StringBuilder sb = new StringBuilder() ;
     int counter = 0;
+    int numOfRules = Integer.parseInt(args[args.length-1]);
+
     while (!positiveData.isEmpty()) {
+      System.out.println("learning");
       Set<Literal> allPredicates = data.loadPredicates();
       allPredicates.remove(target);
       Rule rule = foil(positiveData, negativeData, target, allPredicates, ruleLength);
-      System.out.println(getProb(rule, data, target) + ": " + rule + "\n");
+
+      String currRule = getProb(rule, data, target) + ": " + rule + "\n" ;
+      System.out.println(currRule);
+      sb.append(currRule);
       counter++;
-      if (counter == 10)
+      if (counter == numOfRules)
         break;
     }
+
+    return sb.toString();
   }
 }

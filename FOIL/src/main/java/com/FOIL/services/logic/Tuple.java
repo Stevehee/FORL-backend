@@ -1,4 +1,4 @@
-package foil;
+package com.FOIL.services.logic;
 import java.util.*;
 
 public class Tuple {
@@ -7,17 +7,19 @@ public class Tuple {
 
   Integer ID;
 
-  public Tuple(Integer ID, String[] data) {
+  public Tuple(Integer ID, String[] data, String[] header) {
     this.ID = ID;
     literals = new HashSet<>();
+    HashSet<String> falsyValue = new HashSet<>();
+    falsyValue.add("false");
+    falsyValue.add("n");
+    falsyValue.add("N");
 
     for (int i = 0; i < data.length; i++) {
-      if (isNum(data[i]))
-        continue;
-      if ("false".equals(data[i].trim()) || "n".equals(data[i].trim()))
+      if (falsyValue.contains(data[i].trim()))
         continue;
 
-      String attrName = Constants.attrName[i].trim();
+      String attrName = header[i].trim();
       int numArgs = isBoolean(data[i].trim()) ? 1 : 2;
       List<String> arguments = new ArrayList<>();
 
@@ -52,6 +54,10 @@ public class Tuple {
 
   public Set<Literal> getLiterals() {
     return this.literals;
+  }
+
+  public String toString(){
+    return literals.toString();
   }
 
 }

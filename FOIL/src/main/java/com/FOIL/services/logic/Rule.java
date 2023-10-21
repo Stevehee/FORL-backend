@@ -1,4 +1,4 @@
-package foil;
+package com.FOIL.services.logic;
 import java.util.*;
 
 // Class for a rule
@@ -62,12 +62,9 @@ class Rule {
   public String toString() {
     StringBuilder sb = new StringBuilder();
 
-    // Append head literal
-    sb.append("Head: ");
-    sb.append(head.toString());
+
 
     // Append body literals
-    sb.append("\nBody: ");
     if (body.isEmpty()) {
       sb.append("None");
     } else {
@@ -78,7 +75,8 @@ class Rule {
         }
       }
     }
-
+    sb.append(" --> ") ;
+    sb.append(head.toString());
     return sb.toString();
   }
 

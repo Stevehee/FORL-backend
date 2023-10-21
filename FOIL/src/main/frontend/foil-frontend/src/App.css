@@ -1,0 +1,157 @@
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.app-container {
+  font-family: 'Arial', sans-serif;
+}
+
+.app-header {
+  background-color: #325ca8;  /* You can choose your own color */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.left-section, .intro-section {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%; /* On smaller screens, take full width */
+}
+
+.intro-section {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #f8f8f8;
+  margin-top: 20px; /* Separate intro section from the input section */
+}
+
+.response-container {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+@media(min-width: 768px) {
+  .left-section, .intro-section {
+    width: 50%; /* On larger screens, split into two columns */
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 20px; /* Increased spacing between labels */
+  font-weight: bold;
+}
+
+input[type="text"], textarea, input[type="file"], button {
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px; /* Give some space above the button */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.response-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px 0;
+  background-color: #f5f5f5;
+  max-height: 400px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.response-line {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 8px 0;
+  margin-bottom: 10px;
+}
+
+.confidence-value {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #007BFF;
+}
+
+.rule {
+  display: block;
+}
+
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+.data-section {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+table {
+  border-collapse: collapse;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  box-sizing: border-box; /* Add this line */
+  width: 100%;  /* table will take up to 100% width of its container */
+  min-width: 100%;  /* table won't be smaller than the container */
+  display: block;  /* turns table into a block element to respect width settings */
+  overflow-x: auto;  /* introduces a scrollbar when table content overflows */
+  white-space: nowrap;
+}

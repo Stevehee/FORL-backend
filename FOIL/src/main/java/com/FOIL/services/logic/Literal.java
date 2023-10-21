@@ -1,4 +1,4 @@
-package foil;
+package com.FOIL.services.logic;
 import java.util.*;
 
 public class Literal extends Predicate {
@@ -13,13 +13,10 @@ public class Literal extends Predicate {
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append(name + " " + this.numArgs + " ");
-    sb.append('(');
+    sb.append(name + "(X");
     for (int i = 0; i < arguments.size(); i++) {
+      sb.append(", ");
       sb.append(arguments.get(i));
-      if (i < arguments.size() - 1) {
-        sb.append(", ");
-      }
     }
     sb.append(')');
     return sb.toString();

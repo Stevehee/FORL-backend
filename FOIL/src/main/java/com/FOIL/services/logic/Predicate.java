@@ -1,4 +1,4 @@
-package foil;
+package com.FOIL.services.logic;
 public class Predicate {
   String name;
   int numArgs;
