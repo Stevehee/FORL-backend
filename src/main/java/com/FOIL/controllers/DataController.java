@@ -36,13 +36,5 @@ public class DataController {
         return this.dataService.getRules(file, args) ;
     }
 
-    @RestController
-    public class HomeController {
-        @RequestMapping(value = "")
-        public ModelAndView index() {
-            return new ModelAndView("index.html");
-        }
-    }
-
 
 }
