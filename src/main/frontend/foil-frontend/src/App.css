@@ -10,6 +10,29 @@
   flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
+.introduction-box {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #e7e7e7;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.introduction-box h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.introduction-box p {
+  color: #666;
+}
+
+
 .app-container {
   font-family: 'Arial', sans-serif;
 }
@@ -25,19 +48,18 @@
 }
 
 
-.left-section, .intro-section {
-  flex: 1;
+.intro-section {
+  flex: 0.7;
   padding: 20px;
   box-sizing: border-box;
-  width: 100%; /* On smaller screens, take full width */
+  margin-left: -270px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
 }
 
-.intro-section {
-  padding: 20px;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #f8f8f8;
-  margin-top: 20px; /* Separate intro section from the input section */
+Form{
+  flex: 1;
 }
 
 .response-container {
@@ -52,20 +74,14 @@
   flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
-@media(min-width: 768px) {
-  .left-section, .intro-section {
-    width: 50%; /* On larger screens, split into two columns */
-  }
-}
 
 label {
   display: block;
-  margin-bottom: 20px; /* Increased spacing between labels */
   font-weight: bold;
 }
 
-input[type="text"], textarea, input[type="file"], button {
-  padding: 12px;
+input[type="text"], button {
+  padding: 8px;
   margin-top: 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -78,7 +94,6 @@ button {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 20px; /* Give some space above the button */
 }
 
 button:hover {
@@ -154,4 +169,46 @@ table {
   display: block;  /* turns table into a block element to respect width settings */
   overflow-x: auto;  /* introduces a scrollbar when table content overflows */
   white-space: nowrap;
+}
+
+.intro-section {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.intro-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.intro-section h3 {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.intro-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.intro-section ol {
+  padding-left: 30px;
+  margin-bottom: 25px;
+}
+
+.intro-section li {
+  margin-bottom: 15px;
+}
+
+.intro-section li strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.intro-section code {
+  background-color: #f3f3f3;
+  padding: 3px 6px;
+  border-radius: 4px;
 }

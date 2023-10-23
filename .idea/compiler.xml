@@ -7,15 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="FOIL" />
+        <module name="First-Order-Rule-Learner" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="First-Order-Rule-Learner" target="17" />
       <module name="FOIL" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="FOIL" options="-parameters" />
+      <module name="First-Order-Rule-Learner" options="-parameters" />
     </option>
   </component>
 </project>
